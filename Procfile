@@ -1,2 +1,2 @@
-release: sh install.sh
+release: npm install
 web: npm start
