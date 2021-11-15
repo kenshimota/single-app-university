@@ -7,6 +7,10 @@ const port = 3000;
 const cors = require('cors');
 app.use(cors());
 
+// Para acceder al directorio actual
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // estableciendo porque puerto escuchara la aplicacion determinada
 app.listen(port, function(){
