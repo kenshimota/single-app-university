@@ -4,7 +4,7 @@ import express from 'express';
 import history from 'connect-history-api-fallback';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // configurando el servidor del historial y renderizado de vue
 app.use(cors());

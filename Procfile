@@ -1,1 +1,2 @@
-web: sh install.sh
+release: sh install.sh
+web: npm start
