@@ -17,5 +17,8 @@ app.listen(port, function(){
 	console.log("Ejemplo del listen de una app web por el puerto "  + port);
 });
 
-
+// Middleware para Vue.js router modo history
+const history = require('connect-history-api-fallback');
+app.use(history());
+app.use(express.static(path.join(__dirname, 'public')));
 
