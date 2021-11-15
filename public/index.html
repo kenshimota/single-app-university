@@ -2,10 +2,200 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Tailwind CSS  -->
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Syntax Highlightjs  -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+	<link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/base16/solarized-dark.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+	<script>
+
+		function insertTextNode(identity, html = ""){
+			const node = document.querySelector(identity);
+			if( !node ) throw new Error("la etiquete no fue encontrada");
+
+
+			html = hljs.highlightAuto(html);
+			node.innerHTML = html.value;
+			console.log(node.innerHTML);
+		}
+
+		// al cargar la pagina mostrar enbelleze el codigo
+		window.addEventListener("load", () => {
+			
+			insertTextNode("#code-php",`
+				<html>
+					<head>
+						<title>WebApp</title>
+					</head>
+					<body>
+						<?php 
+							function main(){
+								print("Hello world fine");
+							}
+							main();
+						?>
+					</body>
+				</html>
+			`);
+
+			insertTextNode("#code-javascript", `
+				function insertTextNode(identity, html = ""){
+					// check if nodeHtml exits on document
+					const node = document.querySelector(identity);
+					if( !node ) 
+						throw new Error("la etiquete no fue encontrada");
+					
+					html = hljs.highlightAuto(html);
+					node.innerHTML = html.value;
+					console.log(node.innerHTML);
+				}
+
+				// insertando un html en la pagina
+				insertTextNode("#id-etiqueta", "<h1></h1>");
+			`)
+
+			insertTextNode("#code-html", `
+				<!DOCTYPE HTML PUBLIC 
+					"-//W3C//DTD HTML 4.01//EN" 
+					"http://www.w3.org/TR/html4/strict.dtd"
+				>
+				<html>
+					<!-- Cuerpo del programa -->
+					<body>
+						<!-- Etiquetados de Texto -->
+						<h1>My First Heading</h1>
+						<p>My first paragraph.</p>
+					</body>
+				</html>
+			`);
+
+			insertTextNode("#code-html5",`
+				<!DOCTYPE html>
+				<html>
+					<!-- Cabezera de web
+					<head>
+					 <!--- .... Content de la Cabezera --->
+					</head>
+					
+					<!-- Cuerpo del programa -->
+					<body>
+						<!-- Etiquetados de media -->
+						<audio></audio>
+
+						<!-- Etiquetados de Texto -->
+						<h1>My First Heading</h1>
+						<p>My first paragraph.</p>
+					</body>
+				</html>
+			`)
+
+
+
+		}, false);
+	</script>
+
+	<style type="text/css">
+		pre {
+			background: aliceblue;
+    		top: 50px;
+    		position: relative;
+    	}
+	</style>
+	
+	<!-- Titulo de nuestra pagina Web -->
 	<title>Web App</title>
 </head>
 <body>
+	<div class="container mx-auto">
 
+		<div class="grid  grid-cols-1 md:grid-cols-2">
+
+			<div>
+				<!-- Card Php -->
+				<div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+					<div class="flex justify-center md:justify-end -mt-16">
+						<img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="https://tecnologiaenvivo.com/wp-content/uploads/2014/12/php-icon-300x300.png" />
+					</div>
+  					<div>
+    					<h2 class="text-gray-800 text-3xl font-semibold">PHP</h2>
+    					<p class="mt-2 text-gray-600">PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML. En lugar de usar muchos comandos para mostrar HTML (como en C o en Perl), las páginas de PHP contienen HTML con código incrustado que hace "algo" (en este caso, mostrar "¡Hola, soy un script de PHP!). El código de PHP está encerrado entre las etiquetas especiales de comienzo y final <?php y ?> que permiten entrar y salir del "modo PHP".
+    					</p>
+  					</div>
+				</div>
+			</div>
+
+			<div>
+				<pre id = "code-php">
+					
+				</pre>
+			</div>
+
+			<!-- Javascript -->
+			<div>
+				<div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+					<div class="flex justify-center md:justify-end -mt-16">
+						<img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png" />
+					</div>
+  					<div>
+    					<h2 class="text-gray-800 text-3xl font-semibold">Javascript</h2>
+    					<p class="mt-2 text-gray-600">
+    						JavaScript es un lenguaje de programación o de secuencias de comandos que te permite implementar funciones complejas en páginas web, cada vez que una página web hace algo más que sentarse allí y mostrar información estática para que la veas, muestra oportunas actualizaciones de contenido, mapas interactivos, animación de Gráficos 2D/3D, desplazamiento de máquinas reproductoras de vídeo, etc., puedes apostar que probablemente JavaScript está involucrado. Es la tercera capa del pastel de las tecnologías web estándar.
+    					</p>
+  					</div>
+				</div>
+			</div>
+
+			<div>
+				<pre id = "code-javascript">
+				</pre>
+			</div>
+
+
+			<!-- Card de Html -->
+			<div>
+				<div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+					<div class="flex justify-center md:justify-end -mt-16">
+						<img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/HTML_logo.png">
+					</div>
+  					<div>
+    					<h2 class="text-gray-800 text-3xl font-semibold">HTML</h2>
+    					<p class="mt-2 text-gray-600">HTML, siglas en inglés de HyperText Markup Language (‘lenguaje de marcado de hipertexto’), hace referencia al lenguaje de marcado para la elaboración de páginas web. Es un estándar que sirve de referencia del software que conecta con la elaboración de páginas web en sus diferentes versiones, define una estructura básica y un código (denominado código HTML) para la definición de contenido de una página web, como texto, imágenes, videos, juegos, entre otros.</p>
+  					</div>
+				</div>
+			</div>
+
+			<div>
+				<pre id = "code-html">
+
+				</pre>
+			</div>
+
+			<!-- Card de HTML5 -->
+			<div>
+				<div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+					<div class="flex justify-center md:justify-end -mt-16">
+						<img class = "w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png" />
+					</div>
+  					<div>
+    					<h2 class="text-gray-800 text-3xl font-semibold">HTML5</h2>
+    					<p class="mt-2 text-gray-600">
+    						HTML 5 es la quinta revisión importante del lenguaje básico de la World Wide Web, HTML. HTML5 específica dos variantes de sintaxis para HTML: una «clásica», HTML, conocida como HTML5, y una variante XHTML conocida como sintaxis XHTML 5 que deberá servirse con sintaxis XML.
+    					</p>
+  					</div>
+				</div>
+			</div>
+
+			<div>
+				<pre id = "code-html5">
+				</pre>
+			</div>
+
+		</div>
+	
+	</div>
 </body>
 </html>
